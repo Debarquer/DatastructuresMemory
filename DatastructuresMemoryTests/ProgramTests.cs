@@ -69,15 +69,12 @@ public class ProgramTests
 	public void GetRecursiveEven_PassIntegers_ValidateReturnValue()
 	{
 		// Arrange
-		int[] integers =
-		{
-			1, 2, 3, 4, 5
-		};
+		int n = 5;
 
-		int[] answers = new int[5];
+		int[] answers = new int[n];
 
 		// Act
-		for(int i = 0; i <  integers.Length; i++)
+		for(int i = 0; i <  n; i++)
 		{
 			answers[i] = DatastructuresMemory.DatastructuresMemory.GetRecursiveEven(i);
 		}
@@ -114,6 +111,30 @@ public class ProgramTests
 		for(int i = 0; i < n; i++)
 		{
 			Assert.Equal(returnedAnswers[i], correctAnswers[i]);
+		}
+	}
+
+	/// <summary>
+	/// Tests DatastructuresMemory.GetRecursiveEven with a set of integers and validates the return value.
+	/// </summary>
+	[Fact]
+	public void GetIterativeEven_PassIntegers_ValidateReturnValue()
+	{
+		// Arrange
+		int n = 5;
+
+		int[] answers = new int[n];
+
+		// Act
+		for (int i = 1; i < n; i++)
+		{
+			answers[i] = DatastructuresMemory.DatastructuresMemory.GetIterativeEven(i);
+		}
+
+		// Assert
+		for (int i = 0; i < answers.Length; i++)
+		{
+			Assert.Equal(answers[i], i * 2);
 		}
 	}
 }
