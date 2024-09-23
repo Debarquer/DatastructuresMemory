@@ -356,4 +356,33 @@ public class DatastructuresMemory
 		if (i == n) return a;
 		else return GetFibonacciNumberRecursive(++i, n, b, a + b);
 	}
+
+	/// <summary>
+	/// Prints the results of GetIterativeEven to the console.
+	/// </summary>
+	public static void DemoGetInterativeEven()
+	{
+		Console.WriteLine("Even numbers: ");
+		for(int i = 1; i < 10; i++)
+		{
+			Console.WriteLine($"Even number {i}: {GetIterativeEven(i)} ({i * 2})");
+		}
+	}
+
+	/// <summary>
+	/// Calculates the n:th even number.
+	/// </summary>
+	/// <param name="n"></param>
+	/// <returns>The n:th even number.</returns>
+	public static int GetIterativeEven(int n)
+	{
+		int result = 2;
+
+		for(int i = 0; i < n - 1; i++)
+		{
+			result += 2;
+		}
+
+		return result;
+	}
 }
