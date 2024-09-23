@@ -3,7 +3,7 @@ namespace DatastructuresMemoryTests;
 public class ProgramTests
 {
 	/// <summary>
-	/// Tests a set of valid paranthesisis strings.
+	/// Tests DatastructuresMemory.ValidateParanthesisString with a set of valid paranthesisis strings and validates the return value.
 	/// </summary>
 	[Fact]
 	public void ValidateParanthesisString_PassValidString_ValidateReturnValue()
@@ -33,7 +33,7 @@ public class ProgramTests
 	}
 
 	/// <summary>
-	/// Tests a set of invalid paranthesis strings.
+	/// Tests DatastructuresMemory.ValidateParanthesisString with a set of invalid paranthesis strings and validates the return value.
 	/// </summary>
 	[Fact]
 	public void ValidateParanthesisString_PassInvalidStrings_ValidateReturnValue()
@@ -62,4 +62,30 @@ public class ProgramTests
 		Assert.False(isValid);
 	}
 
+	/// <summary>
+	/// Tests DatastructuresMemory.GetRecursiveEven with a set of integers and validates the return value.
+	/// </summary>
+	[Fact]
+	public void GetRecursiveEven_PassIntegers_ValidateReturnValue()
+	{
+		// Arrange
+		int[] integers =
+		{
+			1, 2, 3, 4, 5
+		};
+
+		int[] answers = new int[5];
+
+		// Act
+		for(int i = 0; i <  integers.Length; i++)
+		{
+			answers[i] = DatastructuresMemory.DatastructuresMemory.GetRecursiveEven(i);
+		}
+
+		// Assert
+		for (int i = 0; i < answers.Length; i++)
+		{
+			Assert.Equal(answers[i], i * 2);
+		}
+	}
 }
