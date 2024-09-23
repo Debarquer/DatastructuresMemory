@@ -318,4 +318,42 @@ public class DatastructuresMemory
 			return GetRecursiveEven(n - 1) + 2;
 		}
 	}
+
+	/// <summary>
+	/// Prints the results of GetFibonacciNumber to the console.
+	/// </summary>
+	public static void DemoGetFibonacciNumber()
+	{
+		for(int i = 1; i < 20; i++)
+		{
+			Console.Write($"{GetFibonacciNumber(i)}, ");
+		}
+		Console.WriteLine();
+	}
+
+	/// <summary>
+	/// Returns the n:th Fibonacci number.
+	/// </summary>
+	/// <param name="n"></param>
+	/// <returns>The n:th Fibonacci number.</returns>
+	public static int GetFibonacciNumber(int n)
+	{
+		if (n == 0) return 0;
+
+		return GetFibonacciNumberRecursive(1, n, 0, 1);
+	}
+
+	/// <summary>
+	/// Recursively calculates the n:th Fibonacci number.
+	/// </summary>
+	/// <param name="i">The current index.</param>
+	/// <param name="n">The target index.</param>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <returns>The n:th Fibonacci number.</returns>
+	public static int GetFibonacciNumberRecursive(int i, int n, int a, int b)
+	{
+		if (i == n) return a;
+		else return GetFibonacciNumberRecursive(++i, n, b, a + b);
+	}
 }

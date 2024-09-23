@@ -37,12 +37,13 @@ namespace DatastructuresMemory
 
 			while (true)
 			{
-				Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
+				Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 5, 6, 0) of your choice"
 					+ "\n1. Examine a List"
 					+ "\n2. Examine a Queue"
 					+ "\n3. Examine a Stack"
 					+ "\n4. CheckParenthesis"
 					+ "\n5. Demo EvenRecursive"
+					+ "\n6. Demo Fibonacci"
 					+ "\n0. Exit the application");
 				char input = ' '; //Creates the character input to be used with the switch-case below.
 				try
@@ -70,6 +71,9 @@ namespace DatastructuresMemory
 						break;
 					case '5':
 						DatastructuresMemory.DemoGetRecursiveEven();
+						break;
+					case '6':
+						DatastructuresMemory.DemoGetFibonacciNumber();
 						break;
 					/*
 					 * Extend the menu to include the recursive 
