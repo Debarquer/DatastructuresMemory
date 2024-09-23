@@ -167,14 +167,25 @@ namespace DatastructuresMemory
 			Console.WriteLine(output);
 		}
 
-		public static char[] paranthesisCharacters =
+		public static char[] openingParanthesisCharacters =
 		{
 			'(',
-			')',
-			'[',
-			']',
 			'{',
-			'}'
+			'[',
+		};
+
+		public static char[] closingParanthesisCharacters =
+		{
+			')',
+			'}',
+			']'
+		};
+
+		public static Dictionary<char, char> closingToOpeningParanthesisDictionary = new Dictionary<char, char>()
+		{
+			{ ')', '(' },
+			{ ']', '[' },
+			{ '}', '{' },
 		};
 
 		public static void CheckParanthesis()
@@ -184,6 +195,66 @@ namespace DatastructuresMemory
 			 * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
 			 * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
 			 */
+
+			Console.Write("Please enter a string to be validated: ");
+			string input = Console.ReadLine();
+
+			if (ValidateParanthesisString(input))
+			{
+				Console.WriteLine("Valid string");
+			}
+			else
+			{
+				Console.WriteLine("Invalid string");
+			}
+		}
+
+		public static bool ValidateParanthesisString(string input)
+		{
+			Stack<char> openingParenthesisStack = [];
+
+			foreach (char c in input.ToCharArray())
+			{
+				if (IsOpeningParanthesis(c))
+				{
+					openingParenthesisStack.Push(c);
+				}
+				else if (IsClosingParanthesis(c))
+				{
+					if (openingParenthesisStack.Count <= 0)
+					{
+						return false;
+					}
+
+					char openingParanthesis = openingParenthesisStack.Pop();
+					if (!ParanthesisMatching(openingParanthesis, c))
+					{
+						return false;
+					}
+				}
+			}
+
+			if (openingParenthesisStack.Count > 0)
+			{
+				return false;
+			}
+
+			return true;
+		}
+
+		private static bool IsClosingParanthesis(char c)
+		{
+			return closingParanthesisCharacters.Contains(c);
+		}
+
+		private static bool IsOpeningParanthesis(char c)
+		{
+			return openingParanthesisCharacters.Contains(c);
+		}
+
+		private static bool ParanthesisMatching(char opening, char closing)
+		{
+			return closingToOpeningParanthesisDictionary[closing] == opening;
 		}
 	}
 }
