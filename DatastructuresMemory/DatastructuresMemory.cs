@@ -290,4 +290,24 @@ public class DatastructuresMemory
 	{
 		return closingToOpeningParanthesisDictionary[closing] == opening;
 	}
+
+	public static void DemoGetRecursiveEven()
+	{
+		for(int i = 0; i < 10; i++)
+		{
+			Console.WriteLine($"Even number {i}: {GetRecursiveEven(i)} ({i * 2})");
+		}
+	}
+
+	public static int GetRecursiveEven(int n)
+	{
+		if(n == 0)
+		{
+			return 0;
+		}
+		else
+		{
+			return GetRecursiveEven(n - 1) + 2;
+		}
+	}
 }

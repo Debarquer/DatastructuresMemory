@@ -42,6 +42,7 @@ namespace DatastructuresMemory
 					+ "\n2. Examine a Queue"
 					+ "\n3. Examine a Stack"
 					+ "\n4. CheckParenthesis"
+					+ "\n5. Demo EvenRecursive"
 					+ "\n0. Exit the application");
 				char input = ' '; //Creates the character input to be used with the switch-case below.
 				try
@@ -66,6 +67,9 @@ namespace DatastructuresMemory
 						break;
 					case '4':
 						DatastructuresMemory.CheckParanthesis();
+						break;
+					case '5':
+						DatastructuresMemory.DemoGetRecursiveEven();
 						break;
 					/*
 					 * Extend the menu to include the recursive 
