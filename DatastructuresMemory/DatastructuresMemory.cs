@@ -418,4 +418,14 @@ public class DatastructuresMemory
 
 		return a;
 	}
+
+	/// Question: Which is more optimized for memory, recursion or iteration?
+	/// Answer: iteration, because each call to the recursive function results in memory added to the stack.
+	/// This memory won't be cleared until we have entered the deepest function calls, since the
+	/// earlier functions won't complete until the deeper function calls are completed.
+	/// 
+	/// There will also be more values stored on the stack.
+	/// Compare the Fibonacci functions:
+	/// The iterative one has 5 values to keep track of (and some of them are only scoped to the for loop).
+	/// Meanwhile the resursive version stores 4 values per function call.
 }
