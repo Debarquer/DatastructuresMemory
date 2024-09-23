@@ -320,13 +320,13 @@ public class DatastructuresMemory
 	}
 
 	/// <summary>
-	/// Prints the results of GetFibonacciNumber to the console.
+	/// Prints the results of GetFibonacciNumberRecursive to the console.
 	/// </summary>
-	public static void DemoGetFibonacciNumber()
+	public static void DemoGetFibonacciNumberRecursive()
 	{
 		for(int i = 1; i < 20; i++)
 		{
-			Console.Write($"{GetFibonacciNumber(i)}, ");
+			Console.Write($"{GetFibonacciNumberRecursive(i)}, ");
 		}
 		Console.WriteLine();
 	}
@@ -336,7 +336,7 @@ public class DatastructuresMemory
 	/// </summary>
 	/// <param name="n"></param>
 	/// <returns>The n:th Fibonacci number.</returns>
-	public static int GetFibonacciNumber(int n)
+	public static int GetFibonacciNumberRecursive(int n)
 	{
 		if (n == 0) return 0;
 
@@ -384,5 +384,38 @@ public class DatastructuresMemory
 		}
 
 		return result;
+	}
+
+	/// <summary>
+	/// Prints the results of GetFibonacciNumberIterative to the console.
+	/// </summary>
+	public static void DemoGetFibonacciNumberIterative()
+	{
+		for (int i = 1; i < 20; i++)
+		{
+			Console.Write($"{GetFibonacciNumberIterative(i)}, ");
+		}
+		Console.WriteLine();
+	}
+
+	/// <summary>
+	/// Calculates the n:th Fibonacci number.
+	/// </summary>
+	/// <param name="n">The target index.</param>
+	/// <returns>The n:th Fibonacci number.</returns>
+	public static int GetFibonacciNumberIterative(int n)
+	{
+		if(n == 0) return 0;
+
+		int a = 0;
+		int b = 1;
+		for (int i = 1; i < n; i++)
+		{
+			int tmp = b;
+			b = a + b;
+			a = tmp;
+		}
+
+		return a;
 	}
 }

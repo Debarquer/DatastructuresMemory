@@ -104,7 +104,7 @@ public class ProgramTests
 		// Act
 		for(int i = 0; i < n; i++)
 		{
-			returnedAnswers[i] = DatastructuresMemory.DatastructuresMemory.GetFibonacciNumber(i + 1);
+			returnedAnswers[i] = DatastructuresMemory.DatastructuresMemory.GetFibonacciNumberRecursive(i + 1);
 		}
 
 		// Assert
