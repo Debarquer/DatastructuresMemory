@@ -1,56 +1,64 @@
-using DatastructuresMemory;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+namespace DatastructuresMemoryTests;
 
-namespace DatastructuresMemoryTests
+public class ProgramTests
 {
-	public class ProgramTests
+	/// <summary>
+	/// Tests a set of valid paranthesisis strings.
+	/// </summary>
+	[Fact]
+	public void TestValidStrings()
 	{
-		[Fact]
-		public void TestValidStrings()
+		// Arrange
+		string[] validTestStrings =
 		{
-			string[] validTestStrings =
-			{
-				"(())",
-				"{}",
-				"[({})]",
-				"List<int> list = new List<int>() { 1, 2, 3, 4 };"
-			};
+			"(())",
+			"{}",
+			"[({})]",
+			"List<int> list = new List<int>() { 1, 2, 3, 4 };"
+		};
 
-			bool isValid = true;
-			foreach (string s in validTestStrings)
+		// Act
+		bool isValid = true;
+		foreach (string s in validTestStrings)
+		{
+			if (!DatastructuresMemory.DatastructuresMemory.ValidateParanthesisString(s))
 			{
-				if (!DatastructuresMemory.DatastructuresMemory.ValidateParanthesisString(s))
-				{
-					isValid = false;
-					break;
-				}
+				isValid = false;
+				break;
 			}
-
-			Assert.True(isValid);
 		}
 
-		[Fact]
-		public void TestInvalidStrings()
+		// Assert
+		Assert.True(isValid);
+	}
+
+	/// <summary>
+	/// Tests a set of invalid paranthesis strings.
+	/// </summary>
+	[Fact]
+	public void TestInvalidStrings()
+	{
+		// Arrange
+		string[] invalidTestStrings =
 		{
-			string[] invalidTestStrings =
-			{
-				"(()])",
-				"[)",
-				"{[()}]",
-				"List<int> list = new List<int>() { 1, 2, 3, 4 );"
-			};
+			"(()])",
+			"[)",
+			"{[()}]",
+			"List<int> list = new List<int>() { 1, 2, 3, 4 );"
+		};
 
-			bool isValid = false;
-			foreach (string s in invalidTestStrings)
+		// Act
+		bool isValid = false;
+		foreach (string s in invalidTestStrings)
+		{
+			if (DatastructuresMemory.DatastructuresMemory.ValidateParanthesisString(s))
 			{
-				if (DatastructuresMemory.DatastructuresMemory.ValidateParanthesisString(s))
-				{
-					isValid = true;
-					break;
-				}
+				isValid = true;
+				break;
 			}
-
-			Assert.False(isValid);
 		}
+
+		// Assert
+		Assert.False(isValid);
 	}
 }
