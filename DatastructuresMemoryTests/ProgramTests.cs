@@ -6,7 +6,7 @@ public class ProgramTests
 	/// Tests a set of valid paranthesisis strings.
 	/// </summary>
 	[Fact]
-	public void TestValidStrings()
+	public void ValidateParanthesisString_PassValidString_ValidateReturnValue()
 	{
 		// Arrange
 		string[] validTestStrings =
@@ -36,7 +36,7 @@ public class ProgramTests
 	/// Tests a set of invalid paranthesis strings.
 	/// </summary>
 	[Fact]
-	public void TestInvalidStrings()
+	public void ValidateParanthesisString_PassInvalidStrings_ValidateReturnValue()
 	{
 		// Arrange
 		string[] invalidTestStrings =
@@ -61,4 +61,5 @@ public class ProgramTests
 		// Assert
 		Assert.False(isValid);
 	}
+
 }
