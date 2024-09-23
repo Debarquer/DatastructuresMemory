@@ -291,6 +291,9 @@ public class DatastructuresMemory
 		return closingToOpeningParanthesisDictionary[closing] == opening;
 	}
 
+	/// <summary>
+	/// Prints the results of GetRecursiveEven to the console.
+	/// </summary>
 	public static void DemoGetRecursiveEven()
 	{
 		for(int i = 0; i < 10; i++)
@@ -299,6 +302,11 @@ public class DatastructuresMemory
 		}
 	}
 
+	/// <summary>
+	/// Recursively calculates the n:th even number.
+	/// </summary>
+	/// <param name="n"></param>
+	/// <returns>The n:th even number.</returns>
 	public static int GetRecursiveEven(int n)
 	{
 		if(n == 0)
