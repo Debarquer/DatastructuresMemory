@@ -87,10 +87,10 @@ public class ProgramTests
 	}
 
 	/// <summary>
-	/// Tests DatastructuresMemory.GetFibonacciNumber with a set of integers and validates the return value.
+	/// Tests DatastructuresMemory.GetFibonacciNumberRecursive with a set of integers and validates the return value.
 	/// </summary>
 	[Fact]
-	public void GetFibonacci_PassIntegers_ValidateReturnValue()
+	public void GetFibonacciRecursive_PassIntegers_ValidateReturnValue()
 	{
 		const int n = 10;
 
@@ -135,6 +135,34 @@ public class ProgramTests
 		for (int i = 0; i < answers.Length; i++)
 		{
 			Assert.Equal(answers[i], i * 2);
+		}
+	}
+
+	/// <summary>
+	/// Tests DatastructuresMemory.GetFibonacciNumberIterative with a set of integers and validates the return value.
+	/// </summary>
+	[Fact]
+	public void GetFibonacciIterative_PassIntegers_ValidateReturnValue()
+	{
+		const int n = 10;
+
+		int[] correctAnswers =
+		{
+			0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610
+		};
+
+		int[] returnedAnswers = new int[n];
+
+		// Act
+		for (int i = 0; i < n; i++)
+		{
+			returnedAnswers[i] = DatastructuresMemory.DatastructuresMemory.GetFibonacciNumberIterative(i + 1);
+		}
+
+		// Assert
+		for (int i = 0; i < n; i++)
+		{
+			Assert.Equal(returnedAnswers[i], correctAnswers[i]);
 		}
 	}
 }
