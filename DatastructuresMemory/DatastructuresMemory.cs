@@ -280,6 +280,12 @@ public class DatastructuresMemory
 		return openingParanthesisCharacters.Contains(c);
 	}
 
+	/// <summary>
+	/// Returns whether or not the opening and closing paranthesis are matching.
+	/// </summary>
+	/// <param name="opening">The opening paranthesis character.</param>
+	/// <param name="closing">The closing paranthesis character.</param>
+	/// <returns>Whether or not the opening and closing paranthesis are matching./returns>
 	private static bool ParanthesisMatching(char opening, char closing)
 	{
 		return closingToOpeningParanthesisDictionary[closing] == opening;
