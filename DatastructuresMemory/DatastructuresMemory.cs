@@ -161,34 +161,11 @@ public class DatastructuresMemory
 		Console.WriteLine(output);
 	}
 
-	/// <summary>
-	/// An array of all opening paranthesis characters.
-	/// </summary>
-	public static char[] openingParanthesisCharacters =
+    private static readonly Paranthesis[] paranthesisCharacters =
 	{
-		'(',
-		'{',
-		'[',
-	};
-
-	/// <summary>
-	/// An array of all closing paranthesis characters.
-	/// </summary>
-	public static char[] closingParanthesisCharacters =
-	{
-		')',
-		'}',
-		']'
-	};
-
-	/// <summary>
-	/// A dictionary linking all closing paranthesis characters to their respective opening paranthesis characters.
-	/// </summary>
-	public static Dictionary<char, char> closingToOpeningParanthesisDictionary = new Dictionary<char, char>()
-	{
-		{ ')', '(' },
-		{ ']', '[' },
-		{ '}', '{' },
+		new Paranthesis(){OpeningCharacter='(', ClosingCharacter=')'},
+		new Paranthesis(){OpeningCharacter='{', ClosingCharacter='}'},
+		new Paranthesis(){OpeningCharacter='[', ClosingCharacter =']'},
 	};
 
 	/// <summary>
@@ -267,7 +244,7 @@ public class DatastructuresMemory
 	/// <returns>If the character is a closing paranthesis.</returns>
 	private static bool IsClosingParanthesis(char c)
 	{
-		return closingParanthesisCharacters.Contains(c);
+		return paranthesisCharacters.Any(p => p.ClosingCharacter == c);
 	}
 
 	/// <summary>
@@ -277,18 +254,25 @@ public class DatastructuresMemory
 	/// <returns>If the character is an opening paranthesis.</returns>
 	private static bool IsOpeningParanthesis(char c)
 	{
-		return openingParanthesisCharacters.Contains(c);
-	}
+        return paranthesisCharacters.Any(p => p.OpeningCharacter == c);
+    }
 
-	/// <summary>
-	/// Returns whether or not the opening and closing paranthesis are matching.
-	/// </summary>
-	/// <param name="opening">The opening paranthesis character.</param>
-	/// <param name="closing">The closing paranthesis character.</param>
-	/// <returns>Whether or not the opening and closing paranthesis are matching./returns>
-	private static bool ParanthesisMatching(char opening, char closing)
+    /// <summary>
+    /// Returns whether or not the opening and closing paranthesis are matching.
+	/// The goal is to check if the selected closing paranthesis matches the opening
+	/// paranthesis by doing the following:
+	/// 1. Find all paranthesis objects where the ClosingCharacter matches closing.
+	/// 2. Check if any of those objects have an OpeningCharacter matching opening.
+	/// 3. Return the result.
+    /// </summary>
+    /// <param name="opening">The opening paranthesis character.</param>
+    /// <param name="closing">The closing paranthesis character.</param>
+    /// <returns>Whether or not the opening and closing paranthesis are matching./returns>
+    private static bool ParanthesisMatching(char opening, char closing)
 	{
-		return closingToOpeningParanthesisDictionary[closing] == opening;
+		return paranthesisCharacters
+            .Where(p => p.ClosingCharacter == closing)
+			.Any(p => p.OpeningCharacter == opening);
 	}
 
 	/// <summary>
