@@ -1,12 +1,12 @@
 namespace DatastructuresMemoryTests;
 
-public class ProgramTests
+public class DatastructuresMemoryTests
 {
 	/// <summary>
 	/// Tests DatastructuresMemory.ValidateParanthesisString with a set of valid paranthesisis strings and validates the return value.
 	/// </summary>
 	[Fact]
-	public void ValidateParanthesisString_PassValidString_ValidateReturnValue()
+	public void ValidateParanthesisString_PassValidStrings_IsValid()
 	{
 		// Arrange
 		string[] validTestStrings =
@@ -36,7 +36,7 @@ public class ProgramTests
 	/// Tests DatastructuresMemory.ValidateParanthesisString with a set of invalid paranthesis strings and validates the return value.
 	/// </summary>
 	[Fact]
-	public void ValidateParanthesisString_PassInvalidStrings_ValidateReturnValue()
+	public void ValidateParanthesisString_PassInvalidStrings_IsInvalid()
 	{
 		// Arrange
 		string[] invalidTestStrings =
@@ -66,7 +66,7 @@ public class ProgramTests
 	/// Tests DatastructuresMemory.GetRecursiveEven with a set of integers and validates the return value.
 	/// </summary>
 	[Fact]
-	public void GetRecursiveEven_PassIntegers_ValidateReturnValue()
+	public void GetRecursiveEven_PassArrayOfIntegers_ReturnsEvenValues()
 	{
 		// Arrange
 		int n = 5;
@@ -90,7 +90,7 @@ public class ProgramTests
 	/// Tests DatastructuresMemory.GetFibonacciNumberRecursive with a set of integers and validates the return value.
 	/// </summary>
 	[Fact]
-	public void GetFibonacciRecursive_PassIntegers_ValidateReturnValue()
+	public void GetFibonacciRecursive_PassArrayOfIntegers_ReturnsFibonacciSequence()
 	{
 		const int n = 10;
 
@@ -118,7 +118,7 @@ public class ProgramTests
 	/// Tests DatastructuresMemory.GetRecursiveEven with a set of integers and validates the return value.
 	/// </summary>
 	[Fact]
-	public void GetIterativeEven_PassIntegers_ValidateReturnValue()
+	public void GetIterativeEven_PassArrayOfIntegers_ReturnsEvenValues()
 	{
 		// Arrange
 		int n = 5;
@@ -142,7 +142,7 @@ public class ProgramTests
 	/// Tests DatastructuresMemory.GetFibonacciNumberIterative with a set of integers and validates the return value.
 	/// </summary>
 	[Fact]
-	public void GetFibonacciIterative_PassIntegers_ValidateReturnValue()
+	public void GetFibonacciIterative_PassArrayOfIntegers_ReturnsFibonacciSequence()
 	{
 		const int n = 10;
 
