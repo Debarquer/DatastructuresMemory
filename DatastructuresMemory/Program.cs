@@ -11,7 +11,7 @@ namespace DatastructuresMemory
 		/// Static variables are stored on the stack.
 		/// 
 		/// The heap is larger and uses a tree structure. The heap stores reference types and can store value types depending on where they are stored.
-		/// The heap requires garbade collection to be cleared.
+		/// The heap requires garbage collection to be cleared.
 		/// 
 		/// 2. Value types vs reference types
 		/// Value types are usually stored on the stack. 
@@ -21,11 +21,22 @@ namespace DatastructuresMemory
 		/// When reference types are passed to functions, the reference is copied but they values are not.
 		/// Passing values by reference can therefore be more efficient.
 		/// 
-		/// 3. See image
+		/// Example:
+		/// ValueType a = 5;
+		/// ValueType b = a;
+		/// a = 10;
+		/// Result: a = 10, b = 5
+		/// 
+		/// ReferenceType a = 5;
+		/// ReferenceType b = a;
+		/// a = 10;
+		/// Result: a = 10, b = 10
+		/// 
+		/// 3.
 		/// ReturnValue:
-		/// x is set to 3. Since x is a value type, it gets copied to y, giving it a vlue of 3. y then gets the value of 4. Then it returns the value of x, 3.
+		/// x is set to 3. Since x is a value type, it gets copied to y, giving it a value of 3. y then gets the value of 4. Then it returns the value of x, 3.
 		/// ReturnValue2:
-		/// x.myVlaue is set to 3. Since x and y are reference types, the reference is copied. the value of x.MyValue (and thus y.MyValue) is set to 4. Then the value of x.MyValue, 4 is returned.
+		/// x.myVlaue is set to 3. Since x and y are reference types, the reference is copied. The value of y.MyValue (and thus x.MyValue) is set to 4. Then the value of x.MyValue, 4 is returned.
 
 
 		/// <summary>
@@ -95,8 +106,6 @@ namespace DatastructuresMemory
 						break;
 				}
 			}
-		}
-
-		
+		}	
 	}
 }

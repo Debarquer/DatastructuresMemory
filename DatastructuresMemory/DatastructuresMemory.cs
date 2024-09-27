@@ -23,7 +23,10 @@ public class DatastructuresMemory
 		/// 4. Every time the capacity is increased, a new array is created and the values are copied over.
 		/// It would be inefficient to do it every time an element is added.
 		/// 5. It appears the capacity does not decrease.
-		/// 6. One advantage could be that you could control the memory management yourself, for example when the array gets resized. (Although the capacity of a list cen be modified manually).
+		/// 6. There are occasions to use an array over a list, for example:
+		/// When you know that the number of elements is not going to change.
+		/// When you want the data to be immutable. Since List is a reference type, it could be changed
+		/// from places where it shouldn't. You can stop this by instead passing it as an array.
 
 
 		Console.WriteLine("Enter a line to continue. Start the line with + to add or - to remove. Exit to leave ExamineList.");
